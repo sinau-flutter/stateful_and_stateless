@@ -1,16 +1,72 @@
 # stateful_and_stateless
 
-A new Flutter project.
+Understanding Stateless and Stateful Widgets
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Stateful have state on their widgets. That means the screen have a something like a value which is changed every time and the Screen need to refresh them to render the new Value.
 
-A few resources to get you started if this is your first Flutter project:
+Example Stateful, you just type `stf` and enter :
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```dart
+class MyApp extends StatefulWidget {
+  @override
+  _MyappState createState() => _MyappState();
+}
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+    );
+  }
+}
+```
+
+What will we do is changing the `_MyappState`. Like this :
+
+```dart
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Stateful dan Stateless'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                count.toString(),
+                style: TextStyle(
+                    fontSize: count.toDouble() + 10, color: Colors.indigo),
+              ),
+              RaisedButton(
+                child: Text('ADD'),
+                onPressed: tombolTambah,
+                color: Colors.amber,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+And we can add some functions to increment the number :
+
+```dart
+int count = 1;
+  void tombolTambah() {
+    setState(() {
+      count = count + 1;
+    });
+  }
+```
+
+\*note : Put that code before `@override`
