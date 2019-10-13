@@ -70,3 +70,17 @@ int count = 1;
 ```
 
 \*note : Put that code before `@override`
+
+We Also can use `Anonymous Method` or Method that can be only use by one Widget. Example :
+
+```dart
+ RaisedButton(
+    child: Text('MIN'),
+    onPressed: () {
+      setState(() {
+        count = count - 1;
+      });
+    },
+    color: Colors.amberAccent,
+  )
+```

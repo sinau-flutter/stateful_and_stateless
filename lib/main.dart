@@ -31,10 +31,24 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(
                     fontSize: count.toDouble() + 10, color: Colors.indigo),
               ),
-              RaisedButton(
-                child: Text('ADD'),
-                onPressed: tombolTambah,
-                color: Colors.amber,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('ADD'),
+                    onPressed: tombolTambah,
+                    color: Colors.amber,
+                  ),
+                  RaisedButton(
+                    child: Text('MIN'),
+                    onPressed: () {
+                      setState(() {
+                        count = count - 1;
+                      });
+                    },
+                    color: Colors.amberAccent,
+                  )
+                ],
               )
             ],
           ),
